@@ -12,6 +12,9 @@ if not st.session_state.get("logado"):
 ROOT_DIR = Path(__file__).resolve().parents[2]
 sys.path.append(str(ROOT_DIR))
 
+st.write(BASE_DIR)
+st.write(CSV_PATH)
+
 from db.session import le_lista, engine
 
 st.set_page_config(

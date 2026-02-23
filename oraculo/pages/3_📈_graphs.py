@@ -8,9 +8,6 @@ if not st.session_state.get("logado"):
     st.warning("Make login to continue.")
     st.stop()
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-st.write("Arquivos na raiz:")
-st.write(list(BASE_DIR.iterdir()))
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 sys.path.append(str(ROOT_DIR))

@@ -5,6 +5,11 @@ import os
 import sys
 from pathlib import Path
 
+BASE_DIR = Path.cwd()
+CSV_PATH = BASE_DIR / "imdb_top_1000.csv"
+
+df = pd.read_csv(CSV_PATH)
+
 if not st.session_state.get("logado"):
     st.warning("Make login to continue.")
     st.stop()
@@ -29,10 +34,7 @@ st.set_page_config(
     layout='wide',
     page_icon='🏠'
 )
-BASE_DIR = Path(__file__).resolve().parents[1]
-CSV_PATH = BASE_DIR / "imdb_top_1000.csv"
 
-df = pd.read_csv(CSV_PATH)
 top5 = (
     df
     .dropna(subset=["IMDB_Rating"])

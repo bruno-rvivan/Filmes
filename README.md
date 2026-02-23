@@ -115,4 +115,4 @@ Visualização de dados
 👨‍💻 Autor
 
 Bruno Rech Vivan
-Projeto desenvolvido para evolução técnica e portfólio profissional.# Filmes
+Projeto desenvolvido para evolução técnica e portfólio profissional.

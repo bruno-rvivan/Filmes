@@ -17,6 +17,8 @@ st.set_page_config(
 st.session_state['criando'] = False
 st.session_state['logado'] = False
 
+def get_project_root():
+    return Path(__file__).resolve().parent
 
 st.title('Welcome')
 

@@ -1,4 +1,4 @@
-# 🎬 Movie AI Dashboard
+# 🎬 Web app de filmes
 
 Aplicação web desenvolvida com **Streamlit**, **SQLAlchemy** e **OpenAI API** para gerenciamento e análise de preferências cinematográficas.
 

@@ -35,7 +35,7 @@ df_favs = df_favs[df_favs['user_id'] == user.id]
 df_favs = df_favs.drop_duplicates(
     subset=["title"]
 )
-#st.dataframe(df_favs)
+
 contagem = df_favs['genre'].value_counts()
 
 fig, ax = plt.subplots()
@@ -54,6 +54,7 @@ with col2:
     st.pyplot(fig, use_container_width=True)
 
 st.divider()
+
 df_watched = pd.read_sql_table(
     table_name='watcheds',
     con=engine
@@ -62,6 +63,7 @@ df_watched = df_watched[df_watched['user_id'] == user.id]
 df_watched = df_watched.drop_duplicates(
     subset=["title"]
 )
+
 max = df_watched.count()
 
 st.subheader(f'Congratulations! You watched {max["id"]} movies 🎬', text_alignment='center')
@@ -69,6 +71,7 @@ st.subheader(f'Congratulations! You watched {max["id"]} movies 🎬', text_align
 st.divider()
 
 st.subheader('And your favorite movies are', text_alignment='center')
+
 st.space()
 
 df_reviews = pd.read_sql_table(
@@ -79,6 +82,7 @@ df_reviews = pd.read_sql_table(
 df_reviews = df_reviews[df_reviews['user_id'] == user.id]
 df_reviews = df_reviews.drop_duplicates(
     subset=["title"])
+
 tops = (
     df_reviews
     .sort_values(by="rating", ascending=False)
@@ -86,6 +90,7 @@ tops = (
 )
 
 cols = st.columns(3)
+
 for col, (_, filme) in zip(cols, tops.iterrows()):
     with col:
         st.image(filme["poster_link"], width=200)
@@ -93,5 +98,3 @@ for col, (_, filme) in zip(cols, tops.iterrows()):
         st.caption(f"⭐ {filme['rating']}")
 
 st.divider()
-
-

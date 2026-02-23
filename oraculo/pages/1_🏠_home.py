@@ -4,8 +4,9 @@ from openai import OpenAI
 import os
 import sys
 from pathlib import Path
+from utils import get_project_root
 
-BASE_DIR = Path.cwd()
+BASE_DIR = get_project_root()
 CSV_PATH = BASE_DIR / "imdb_top_1000.csv"
 
 df = pd.read_csv(CSV_PATH)

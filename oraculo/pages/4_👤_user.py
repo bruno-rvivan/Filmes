@@ -41,11 +41,6 @@ if st.button('Change'):
                 name=name,
                 email=email
         )
-st.divider()
-st.subheader('Favorites genres', text_alignment='center')
-df_favs
-contagem = df_favs['genre'].value_counts().head(3)
-st.write(contagem.index)
 
 st.divider()
 st.subheader("🎥 Seu Perfil Cinematográfico")

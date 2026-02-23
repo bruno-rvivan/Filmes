@@ -36,6 +36,7 @@ def login():
                 st.session_state['usuario'] = user
                 st.session_state['id'] = user.id
                 st.session_state['logado'] = True
+                st.switch_page('pages/1_🏠_home.py')
             else:
                 st.error('Incorect Password')
 

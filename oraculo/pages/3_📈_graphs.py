@@ -12,6 +12,7 @@ if not st.session_state.get("logado"):
 ROOT_DIR = Path(__file__).resolve().parents[2]
 sys.path.append(str(ROOT_DIR))
 
+BASE_DIR = Path(__file__).resolve().parents[1]
 st.write(BASE_DIR)
 st.write(CSV_PATH)
 

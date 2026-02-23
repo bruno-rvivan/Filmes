@@ -15,6 +15,7 @@ from db.session import engine, modifica_usuario, perfil_dados_usuario
 from db.ai import gerar_perfil_cinematografico
 
 user = st.session_state['usuario']
+
 st.set_page_config(
     layout='centered',
     page_icon='👤'
@@ -23,16 +24,20 @@ df_favs = pd.read_sql_table(
     "favorite_films",
     con=engine
 )
+
 df_favs = df_favs[df_favs['user_id'] == user.id].drop_duplicates(subset=["title"])
 
 
 st.title('Profile', text_alignment='center')
+
 st.divider()
 st.space()
+
 st.subheader('Account', text_alignment='center')
 
 st.markdown(f'Username: {user.name}')
 st.markdown(f'email: {user.email}')
+
 if st.button('Change'):
     name = st.text_input('New username')
     email = st.text_input('New email')
@@ -48,10 +53,10 @@ st.subheader("🎥 Seu Perfil Cinematográfico")
 generos, diretores, media = perfil_dados_usuario(user.id)
 
 if generos:
-    with st.spinner("Analisando seu perfil..."):
+    with st.spinner("Analyzing your profile..."):
         texto = gerar_perfil_cinematografico(generos, diretores, media)
 
     st.success(texto)
 
 else:
-    st.info("Adicione favoritos para gerar seu perfil.")
+    st.info("Add favorite movies.")

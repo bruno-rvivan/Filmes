@@ -19,17 +19,9 @@ if not st.session_state.get("logado"):
 ROOT_DIR = Path(__file__).resolve().parents[2]
 sys.path.append(str(ROOT_DIR))
 
-from db.session import le_lista, engine
 from db.ai import perguntar_gpt
 
 user = st.session_state['usuario']
-
-api_key = os.getenv("OPENAI_API_KEY")
-
-if not api_key:
-    api_key = st.secrets.get("OPENAI_API_KEY")
-
-client = OpenAI(api_key=api_key)
 
 st.set_page_config(
     layout='wide',
@@ -43,15 +35,19 @@ top5 = (
     .head(5)
 )
 st.header('WELCOME', text_alignment='center')
+
 st.divider()
-#st.dataframe(top5)
+
 st.subheader('On rise🔥', text_alignment='center')
+
 cols = st.columns(5)
+
 for col, (_, filme) in zip(cols, top5.iterrows()):
     with col:
         st.image(filme["Poster_Link"], width=200)
         st.caption(filme["Series_Title"])
         st.caption(f"⭐ {filme['IMDB_Rating']}")
+        
 st.divider()
 
 
@@ -92,6 +88,3 @@ if pergunta:
 
     except Exception as e:
         st.error("Connection Error.")
-
-
-

@@ -23,7 +23,7 @@ def login():
     with st.container(border=True):
         usuarios = le_todos_users()
         usuarios = {usuario.name: usuario for usuario in usuarios}
-        name = st.selectbox(
+        name = st.text_input(
         'User',
             list(usuarios.keys()
                  )

@@ -11,7 +11,8 @@ init_db()
 
 st.set_page_config(
     layout='wide',
-    page_icon='📝'
+    page_icon='📝',
+    initial_sidebar_state="collapsed"
 )
 
 st.session_state['criando'] = False
